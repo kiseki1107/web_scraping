@@ -11,7 +11,7 @@ def init_browser():
     #return Browser('chrome', **executable_path, headless=False)
 
     #Windows Users
-    executable_path = {'executable_path': 'Mission-to-Mars'}
+    executable_path = {'executable_path': 'chromedriver.exe'}
     return Browser('chrome', **executable_path, headless=False)
 
 def scrape():
@@ -32,7 +32,7 @@ def scrape():
     # Append NSA Mars News to dictionary
     mars_dict["news_title"] = news_title
     mars_dict["news_p"] = news_p
-
+    print(mars_dict)
     # JPL Mars Space Images------------------------------------------------------------------
     # URL of page to be scraped
     mars_image_url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -114,5 +114,7 @@ def scrape():
     # Return Mars results---------------------------------------------------------------------------------------
     # Close browser after scraping
     browser.quit()
+    print(mars_dict)
     # Return results
     return mars_dict
+scrape()
