@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <!-- Bootstrap CSS --------------------------------------------------------------------------------->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap JS ---------------------------------------------------------------------------------->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<!----------------------------------------------------------------------------------------------------->
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+  </div>
+  <!-- NASA Mars News -------------------------------------------------------------------------------->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Latest Mars News</h3>
+        <h5>{{ mars_dict.news_title }}</h5>
+        <p>{{ mars_dict.news_p }}</p>
+      </div> <!-- end column -->
+    </div> <!-- end row -->
+  <!-- JPL Mars Space Images -------------------------------------------------------------------------->
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <h3>Featured Mars Image</h3>
+        <img src="{{ mars_dict.featured_image_url }}" style="width:100%;" alt="Mars Featured Image">
+      </div> <!-- end colum -->
+  <!-- Mars Weather ------------------------------------------------------------------------------------>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card">
+          <h5 class="card-title">Current Weather on Mars</h5>
+          <p class="card-text">{{ mars_dict.mars_weather }}</p>
+        </div> <!-- end card -->
+  <!-- Mars Facts -------------------------------------------------------------------------------------->
+        <br>
+        <div class="card">
+          <h3>Mars Facts</h3>
+          <p>{{ mars_dict.mars_facts|safe }}</p>
+        </div> <!-- end card -->
+      </div> <!-- column end -->
+    </div> <!-- row end -->
+  <!-- Mars Hemisphere ---------------------------------------------------------------------------------->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <h3 style="text-align: center;">Mars Hemispheres</h3>
+          <hr>
+          <div class="row">
+            {% for item in mars_dict.hemisphere_image_urls %}
+              <div class="col-md-6 col-sm-12">
+                <div class="card">
+                  <img class="card-img-top" src="{{ hemisphere.img_url }}" />
+                  <div class="card-body">
+                    <p class="card-text">{{ hemisphere.title }}</p>
+                  </div> <!-- end card-body -->
+                </div> <!-- end card -->
+              </div> <!-- end column-->
+            {% endfor %}
+          </div> <!-- end row -->
+        </div> <!-- end card -->
+      </div> <!-- end column -->
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+</body>
+
+</html>
