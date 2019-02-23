@@ -32,7 +32,7 @@ def scrape():
     # Append NSA Mars News to dictionary
     mars_dict["news_title"] = news_title
     mars_dict["news_p"] = news_p
-    print(mars_dict)
+    #print(mars_dict)
     # JPL Mars Space Images------------------------------------------------------------------
     # URL of page to be scraped
     mars_image_url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -114,7 +114,6 @@ def scrape():
     # Return Mars results---------------------------------------------------------------------------------------
     # Close browser after scraping
     browser.quit()
-    print(mars_dict)
+    #print(mars_dict)
     # Return results
     return mars_dict
-scrape()

@@ -14,8 +14,8 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app") # This is an inli
 # Create index route
 @app.route("/")
 def index(): 
-    #mars_dict = mongo.db.mars_dict.find_one()
-    mars_dict = scrape_mars.scrape()
+    mars_dict = mongo.db.mars_dict.find_one()
+    #mars_dict = scrape_mars.scrape()
     return render_template("index.html", mars_dict=mars_dict)
 
 # Create scrape route
