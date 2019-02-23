@@ -18,7 +18,7 @@
 <body>
   <div class="container">
     <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
+      <h1><strong>Mission to Mars</strong></h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
   </div>
@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Latest Mars News</h3>
+        <h3><strong>Latest Mars News</strong></h3>
         <h5>{{ mars_dict.news_title }}</h5>
         <p>{{ mars_dict.news_p }}</p>
       </div> <!-- end column -->
@@ -34,19 +34,19 @@
   <!-- JPL Mars Space Images -------------------------------------------------------------------------->
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12">
-        <h3>Featured Mars Image</h3>
+        <h3><strong>Featured Mars Image</strong></h3>
         <img src="{{ mars_dict.featured_image_url }}" style="width:100%;" alt="Mars Featured Image">
       </div> <!-- end colum -->
   <!-- Mars Weather ------------------------------------------------------------------------------------>
       <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card">
-          <h5 class="card-title">Current Weather on Mars</h5>
+        <div class="card" style="padding:10px;">
+          <h5 class="card-title"><strong>Current Weather on Mars</strong></h5>
           <p class="card-text">{{ mars_dict.mars_weather }}</p>
         </div> <!-- end card -->
   <!-- Mars Facts -------------------------------------------------------------------------------------->
         <br>
-        <div class="card">
-          <h3>Mars Facts</h3>
+        <div class="card" style="padding:10px;">
+          <h5><strong>Mars Facts</strong></h5>
           <p>{{ mars_dict.mars_facts|safe }}</p>
         </div> <!-- end card -->
       </div> <!-- column end -->
@@ -55,15 +55,15 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <h3 style="text-align: center;">Mars Hemispheres</h3>
+          <h3 style="text-align: center;"><strong>Mars Hemispheres</strong></h3>
           <hr>
           <div class="row">
-            {% for item in mars_dict.hemisphere_image_urls %}
+            {% for item in mars_dict.hemisphere_img_urls %}
               <div class="col-md-6 col-sm-12">
                 <div class="card">
-                  <img class="card-img-top" src="{{ hemisphere.img_url }}" />
+                  <img class="card-img-top" src={{ item.img_url }} />
                   <div class="card-body">
-                    <p class="card-text">{{ hemisphere.title }}</p>
+                    <p class="card-text"><h3><strong>{{ item.title }}</strong></h3></p>
                   </div> <!-- end card-body -->
                 </div> <!-- end card -->
               </div> <!-- end column-->
